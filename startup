@@ -18,6 +18,7 @@ xmodmap "/home/b/.Xmodmap"
 kmix &
 gkrellm &
 pidgin &
+nm-applet &
 #/usr/lib/notification-daemon/notification-daemon &
 #
 # Debian-local change:
