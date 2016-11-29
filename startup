@@ -19,6 +19,7 @@ kmix &
 gkrellm &
 pidgin &
 nm-applet &
+yakuake &
 #/usr/lib/notification-daemon/notification-daemon &
 #
 # Debian-local change:
