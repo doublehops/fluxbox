@@ -2,13 +2,10 @@
 OnDesktop Mouse1 :HideMenus
 OnDesktop Mouse2 :WorkspaceMenu
 OnDesktop Mouse3 :RootMenu
-OnWindow  Mouse6 :RootMenu
-OnDesktop  Mouse10 :RootMenu
-OnWindow  Mouse10 :RootMenu
 
 # scroll on the desktop to change workspaces
-#OnDesktop Mouse4 :PrevWorkspace
-#OnDesktop Mouse5 :NextWorkspace
+OnDesktop Mouse4 :PrevWorkspace
+OnDesktop Mouse5 :NextWorkspace
 
 # scroll on the toolbar to change current window
 OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
@@ -78,8 +75,6 @@ Mod1 F5 :Kill
 Mod1 F9 :Minimize
 Mod1 F10 :Maximize
 Mod1 F11 :Fullscreen
-Mod4 Up :Maximize
-Mod4 Down :Fullscreen
 
 # open the window menu
 Mod1 space :WindowMenu
@@ -100,18 +95,18 @@ Control Mod4 Left :TakeToPrevWorkspace
 Control Mod4 Right :TakeToNextWorkspace
 
 # change to a specific workspace
-Mod1 1 :Workspace 1
-Mod1 2 :Workspace 2
-Mod1 3 :Workspace 3
-Mod1 4 :Workspace 4
-Mod1 5 :Workspace 5
-Mod1 6 :Workspace 6
-Mod1 7 :Workspace 7
-Mod1 8 :Workspace 8
-Mod1 9 :Workspace 9
-Mod1 10 :Workspace 10
-Mod1 11 :Workspace 11
-Mod1 12 :Workspace 12
+Control F1 :Workspace 1
+Control F2 :Workspace 2
+Control F3 :Workspace 3
+Control F4 :Workspace 4
+Control F5 :Workspace 5
+Control F6 :Workspace 6
+Control F7 :Workspace 7
+Control F8 :Workspace 8
+Control F9 :Workspace 9
+Control F10 :Workspace 10
+Control F11 :Workspace 11
+Control F12 :Workspace 12
 
 # send the current window to a specific workspace
 Mod4 F1 :SendToWorkspace 1
@@ -141,26 +136,48 @@ Control Mod4 F10 :TakeToWorkspace 10
 Control Mod4 F11 :TakeToWorkspace 11
 Control Mod4 F12 :TakeToWorkspace 12
 
+####  Customisations start here ####
+
+# Change to a specific workspace
+Mod1 1 :Workspace 1
+Mod1 2 :Workspace 2
+Mod1 3 :Workspace 3
+Mod1 4 :Workspace 4
+Mod1 5 :Workspace 5
+Mod1 6 :Workspace 6
+Mod1 7 :Workspace 7
+Mod1 8 :Workspace 8
+
+# Minimize / Maximize toggle
+Mod4 Up :Maximize
+Mod4 Down :Fullscreen
+
+# Move on window
+OnWindow Mod4 Move1 :StartResizing
+
 # Control = Control; Shift = Shift; Windows key = Mod4; Alt key = Mod1
 Mod4 s :Exec ksnapshot
 Mod4 k :Exec kate
 Mod1 Control x :Exec xcalc
 #Mod4 e :Exec /usr/bin/Eterm -f#FFFFFF -O -c#FFFFFF --shade 50 -g 165x35 --buttonBar no -T Terminal --font 6x12
 Mod4 e :Exec /usr/bin/terminator -p custom
+Mod4 Shift e :Exec /usr/bin/terminator -p transparent
 Mod4 f :Exec /usr/bin/firefox
 Mod4 Shift f :Exec ~/firefox-developer-edition/firefox
 Mod4 t :Exec /usr/bin/thunderbird
 Mod4 c :Exec /usr/bin/chromium-browser
-Mod1 Control c :exec /usr/bin/chromium-browser --proxy-server="50.57.42.58:8080"
 Mod4 d :Exec /usr/bin/dolphin
 Mod4 x :Exec /usr/bin/xkill
 Mod4 g :Exec /usr/bin/gimp
 Mod4 v :Exec /usr/bin/virtualbox
 Mod4 o :Exec /usr/bin/libreoffice
 Mod4 m :RootMenu
-Mod4 K :Exec /usr/bin/killall firefox
-Mod4 n :Exec /usr/bin/gmtp
-Mod4 n :Exec /home/b/bin/noc-vnc
-Mod4 p :Exec /home/b/PhpStorm-131.374/bin/phpstorm.sh
-Mod4 space :Exec fbrun
-Mod4 l :ExecCommand sudo /usr/sbin/pm-suspend && slock
+Mod4 space :Exec rofi -show run -width 100 -padding 500 -opacity "82" -bg "#000000" -hlbg "#cf5300" -fg "#cf5300" -hlfg "#000000"
+Mod4 l :ExecCommand slock
+Mod4 Shift l :ExecCommand sudo /usr/sbin/pm-suspend && slock
+Mod4 XF86AudioMute :ExecCommand ~/bin/mute-ads.sh 57
+XF86AudioPlay :Exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+XF86AudioPrev :Exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+XF86AudioNext :Exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+Mod4 a :Exec yakuake
+Mod4 r :Reconfigure
